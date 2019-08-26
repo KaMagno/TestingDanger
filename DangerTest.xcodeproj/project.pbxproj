@@ -12,8 +12,12 @@
 		18C116232310664E00EB809C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C116212310664E00EB809C /* Main.storyboard */; };
 		18C116252310665000EB809C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C116242310665000EB809C /* Assets.xcassets */; };
 		18C116282310665000EB809C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C116262310665000EB809C /* LaunchScreen.storyboard */; };
-		18C116332310665100EB809C /* DangerTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C116322310665100EB809C /* DangerTestTests.swift */; };
+		18C116332310665100EB809C /* TaskManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C116322310665100EB809C /* TaskManagerSpec.swift */; };
 		18C1163E2310665100EB809C /* DangerTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1163D2310665100EB809C /* DangerTestUITests.swift */; };
+		18C1164C2310669E00EB809C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1164B2310669E00EB809C /* Task.swift */; };
+		18C116512310671100EB809C /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C116502310671100EB809C /* TaskManager.swift */; };
+		18C116532310676F00EB809C /* TaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C116522310676F00EB809C /* TaskFactory.swift */; };
+		18C1165523106B5800EB809C /* TaskManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1165423106B5800EB809C /* TaskManagerMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +46,15 @@
 		18C116272310665000EB809C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18C116292310665000EB809C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C1162E2310665100EB809C /* DangerTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DangerTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		18C116322310665100EB809C /* DangerTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangerTestTests.swift; sourceTree = "<group>"; };
+		18C116322310665100EB809C /* TaskManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerSpec.swift; sourceTree = "<group>"; };
 		18C116342310665100EB809C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C116392310665100EB809C /* DangerTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DangerTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C1163D2310665100EB809C /* DangerTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangerTestUITests.swift; sourceTree = "<group>"; };
 		18C1163F2310665100EB809C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18C1164B2310669E00EB809C /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		18C116502310671100EB809C /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		18C116522310676F00EB809C /* TaskFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFactory.swift; sourceTree = "<group>"; };
+		18C1165423106B5800EB809C /* TaskManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +106,9 @@
 			isa = PBXGroup;
 			children = (
 				18C1161D2310664E00EB809C /* AppDelegate.swift */,
-				18C1161F2310664E00EB809C /* ViewController.swift */,
+				18C1164F231066B400EB809C /* View */,
+				18C1164E231066AF00EB809C /* Manager */,
+				18C1164D231066A500EB809C /* Task */,
 				18C116212310664E00EB809C /* Main.storyboard */,
 				18C116242310665000EB809C /* Assets.xcassets */,
 				18C116262310665000EB809C /* LaunchScreen.storyboard */,
@@ -110,8 +120,9 @@
 		18C116312310665100EB809C /* DangerTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				18C116322310665100EB809C /* DangerTestTests.swift */,
-				18C116342310665100EB809C /* Info.plist */,
+				18C1165823106B6F00EB809C /* Specs */,
+				18C1165623106B6000EB809C /* Mocks */,
+				18C1165723106B6500EB809C /* Supproting Files */,
 			);
 			path = DangerTestTests;
 			sourceTree = "<group>";
@@ -123,6 +134,55 @@
 				18C1163F2310665100EB809C /* Info.plist */,
 			);
 			path = DangerTestUITests;
+			sourceTree = "<group>";
+		};
+		18C1164D231066A500EB809C /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				18C1164B2310669E00EB809C /* Task.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		18C1164E231066AF00EB809C /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				18C116502310671100EB809C /* TaskManager.swift */,
+				18C116522310676F00EB809C /* TaskFactory.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		18C1164F231066B400EB809C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18C1161F2310664E00EB809C /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18C1165623106B6000EB809C /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				18C1165423106B5800EB809C /* TaskManagerMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		18C1165723106B6500EB809C /* Supproting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18C116342310665100EB809C /* Info.plist */,
+			);
+			name = "Supproting Files";
+			sourceTree = "<group>";
+		};
+		18C1165823106B6F00EB809C /* Specs */ = {
+			isa = PBXGroup;
+			children = (
+				18C116322310665100EB809C /* TaskManagerSpec.swift */,
+			);
+			path = Specs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +317,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				18C116202310664E00EB809C /* ViewController.swift in Sources */,
+				18C1164C2310669E00EB809C /* Task.swift in Sources */,
+				18C116532310676F00EB809C /* TaskFactory.swift in Sources */,
+				18C116512310671100EB809C /* TaskManager.swift in Sources */,
 				18C1161E2310664E00EB809C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,7 +328,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18C116332310665100EB809C /* DangerTestTests.swift in Sources */,
+				18C1165523106B5800EB809C /* TaskManagerMock.swift in Sources */,
+				18C116332310665100EB809C /* TaskManagerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
