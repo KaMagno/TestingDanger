@@ -12,4 +12,4 @@ danger:
     before_script:
         - danger --version
     script:
-        - danger
+        - danger-gitlab
