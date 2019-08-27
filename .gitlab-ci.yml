@@ -15,6 +15,6 @@ danger:
         - which ruby
         - gem install bundler
         - bundle install
-        - danger --version
+        - bundle exec danger --version
     script:
         - bundle exec danger
