@@ -9,7 +9,7 @@ danger:
     image:
         name: dantoml/danger:latest
         entrypoint: [""]
-    before_scriptt:
+    before_script:
         - ruby -v
         - which ruby
         - gem install bundler
