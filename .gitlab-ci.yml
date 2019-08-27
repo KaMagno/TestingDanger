@@ -10,9 +10,9 @@ danger:
         name: dantoml/danger:latest
         entrypoint: [""]
     before_scriptt:
-         - ruby -v
-         - which ruby
-         - gem install bundler
-         - danger --version
+        - ruby -v
+        - which ruby
+        - gem install bundler
+        - danger --version
     script:
-         - danger
+        - danger
