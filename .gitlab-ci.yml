@@ -17,4 +17,4 @@ danger:
         - bundle install
         - danger --version
     script:
-        - danger
+        - bundle exec danger
