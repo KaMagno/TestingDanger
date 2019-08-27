@@ -4,9 +4,11 @@ variables:
     DANGER_GITLAB_API_TOKEN: C_5_hUKcJWP4kCmTj-UC
 stages:
     - danger
+    
 danger:
     stage: danger
-    image: ruby: 2.3.1
+    image:
+        name: dantoml/danger:latest
         entrypoint: [""]
     before_script:
         - ruby -v
