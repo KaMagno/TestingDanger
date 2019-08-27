@@ -7,8 +7,7 @@ stages:
 danger:
     stage: danger
     image:
-        ruby:2.3.1
-        name: dantoml/danger:latest
+        name: dantoml/danger:4.3.5
         entrypoint: [""]
     before_script:
         - ruby -v
