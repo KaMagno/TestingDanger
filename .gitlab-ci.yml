@@ -6,8 +6,7 @@ stages:
     - danger
 danger:
     stage: danger
-    image:
-        ruby: 2.3.1
+    image: ruby: 2.3.1
         entrypoint: [""]
     before_script:
         - ruby -v
