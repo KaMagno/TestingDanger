@@ -2,4 +2,4 @@ source "https://www.rubygems.org"
 
 ruby '2.3.1'
 
-gem 'danger'
+gem 'danger-gitlab'
