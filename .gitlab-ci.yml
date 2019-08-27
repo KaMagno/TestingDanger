@@ -13,6 +13,7 @@ danger:
         - ruby -v
         - which ruby
         - gem install bundler
+        - bundle install
         - danger --version
     script:
         - danger
