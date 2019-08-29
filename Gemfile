@@ -1,3 +1,4 @@
 source "https://www.rubygems.org"
 
-gem 'danger-gitlab'
+gem 'danger'
+gem 'danger-swiftlint'
