@@ -109,7 +109,6 @@
 				18C1164F231066B400EB809C /* View */,
 				18C1164E231066AF00EB809C /* Manager */,
 				18C1164D231066A500EB809C /* Task */,
-				18C116212310664E00EB809C /* Main.storyboard */,
 				18C116242310665000EB809C /* Assets.xcassets */,
 				18C116262310665000EB809C /* LaunchScreen.storyboard */,
 				18C116292310665000EB809C /* Info.plist */,
@@ -156,6 +155,7 @@
 		18C1164F231066B400EB809C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18C116212310664E00EB809C /* Main.storyboard */,
 				18C1161F2310664E00EB809C /* ViewController.swift */,
 			);
 			path = View;
