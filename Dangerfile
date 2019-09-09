@@ -19,17 +19,3 @@ return unless has_app_changes || has_danger_changes
 if git.lines_of_code > 50 && has_app_changes && !has_test_changes
   warn 'This PR may need tests.'
 end
-
-
-non_empty_lines(lines).each do |line|
-  if line.include? 'Permanently added the RSA host key for IP address'
-    # Don't report to Danger
-  elsif line.start_with? 'Message:'
-    message parse_line(line)
-  elsif line.start_with? 'Warning:'
-    warn parse_line(line)
-  elsif line.start_with? 'Error:'
-    fail parse_line(line)
-  end
-end
-
