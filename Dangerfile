@@ -35,5 +35,6 @@ end
 #
 # This lints all Swift files and leave comments in PR if 
 # there is any issue with linting
+swiftlint.verbose = true
 swiftlint.lint_files
 swiftlint.lint_files inline_mode: true
