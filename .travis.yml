@@ -1,5 +1,7 @@
 os: osx
 before_script:
   - brew upgrade swiftlint
+  - swiftlint
   - bundle install
   - bundle exec danger
+
