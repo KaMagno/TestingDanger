@@ -33,3 +33,4 @@ non_empty_lines(lines).each do |line|
   end
 end
 
+swiftlint.lint_files
