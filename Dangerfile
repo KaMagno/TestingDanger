@@ -1,37 +1,44 @@
 message("Danger working here")
 
+# PR is a work in progress and shouldn't be merged yet
+warn "PR is classed as Work in Progress" if github.pr_title.include? "[WIP]"
+
 # Warn when there is a big PR
 warn('Big PR') if git.lines_of_code > 500
 
-modified_files = git.modified_files + git.added_files
-
-# Sometimes its a README fix, or something like that - which isn't relevant for
-# including in a CHANGELOG for example
-has_app_changes = !modified_files.grep(/Source/).empty?
-has_test_changes = !modified_files.grep(/Tests/).empty?
-has_danger_changes = !modified_files.grep(/Dangerfile|script\/oss-check|Gemfile/).empty?
-has_rules_changes = !modified_files.grep(/Source\/SwiftLintFramework\/Rules/).empty?
-has_rules_docs_changes = modified_files.include?('Rules.md')
-
-return unless has_app_changes || has_danger_changes
-
-# Non-trivial amounts of app changes without tests
-if git.lines_of_code > 50 && has_app_changes && !has_test_changes
-  warn 'This PR may need tests.'
+# Mainly to encourage writing up some reasoning about the PR, rather than
+# just leaving a title
+if github.pr_body.length < 5
+  fail "Please provide a summary in the Pull Request description"
 end
 
-
-non_empty_lines(lines).each do |line|
-  if line.include? 'Permanently added the RSA host key for IP address'
-    # Don't report to Danger
-  elsif line.start_with? 'Message:'
-    message parse_line(line)
-  elsif line.start_with? 'Warning:'
-    warn parse_line(line)
-  elsif line.start_with? 'Error:'
-    fail parse_line(line)
-  end
+# If these are all empty something has gone wrong, better to raise it in a comment
+if git.modified_files.empty? && git.added_files.empty? && git.deleted_files.empty?
+  fail "This PR has no changes at all, this is likely an issue during development."
 end
 
-swiftlint.binary_path /usr/local/bin/swiftlint
-swiftlint.lint_files
+# Info.plist file shouldn't change often. Leave warning if it changes.
+is_plist_change = git.modified_files.sort == ["ProjectName/Info.plist"].sort
+
+if !is_plist_change
+  warn "Plist changed, don't forget to localize your plist values"
+end
+
+podfile_updated = !git.modified_files.grep(/Podfile/).empty?
+
+# Leave warning, if Podfile changes
+if podfile_updated
+  warn "The `Podfile` was updated"
+end
+
+# This is swiftlint plugin. More info: https://github.com/ashfurrow/danger-swiftlint
+#
+# This lints all Swift files and leave comments in PR if 
+# there is any issue with linting
+swiftlint.verbose = true
+swiftlint.binary_path = "/usr/local/bin/swiftlint"
+swiftlint.lint_files 
+swiftlint.lint_files inline_mode: true
+
+swiftlint.warnings  # just warnings
+swiftlint.errors    # just errors
