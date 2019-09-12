@@ -1,7 +1,4 @@
 os: osx
-cache:
-  directories:
-   - /Users/travis/Library/Developer/Xcode/DerivedData/
 
 language: swift
 
