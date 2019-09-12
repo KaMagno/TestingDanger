@@ -10,3 +10,4 @@ xcode_destination: platform=iOS Simulator,OS=12.4,name=iPhone X
 before_script:
   - bundle install
   - bundle exec danger
+  
