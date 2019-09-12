@@ -37,5 +37,8 @@ end
 # there is any issue with linting
 swiftlint.verbose = true
 swiftlint.binary_path = "/usr/local/bin/swiftlint"
-swiftlint.lint_files
+swiftlint.lint_files 
 swiftlint.lint_files inline_mode: true
+
+swiftlint.warnings  # just warnings
+swiftlint.errors    # just errors
