@@ -5,9 +5,8 @@ language: swift
 osx_image: xcode10.3 #2
 xcode_project: DangerTest.xcodeproj #3
 xcode_scheme: DangerTest #4
-xcode_sdk: iphonesimulator12.4 #5
+xcode_destination: platform=iOS Simulator,OS=12.4,name=iPhone X
 
 before_script:
   - bundle install
   - bundle exec danger
-
