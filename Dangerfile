@@ -33,4 +33,5 @@ non_empty_lines(lines).each do |line|
   end
 end
 
+swiftlint.binary_path /usr/local/bin/swiftlint
 swiftlint.lint_files
