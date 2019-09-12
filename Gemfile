@@ -1,6 +1,6 @@
 source 'https://rubygems.org' do
   # Gems here
-  gem 'rake'
   gem 'danger'
   gem 'danger-swiftlint'
+  gem 'xcpretty'
 end
